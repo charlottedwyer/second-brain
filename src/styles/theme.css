@@ -1,6 +1,21 @@
-/* small utility tweaks — you can edit to taste */
-:root{
-  --accent: #7c3aed; /* purple */
-  --accent-100: #f3e8ff;
-  --muted: #6b7280;
+:root {
+  /* Primary colours */
+  --accent: #b497f7;       /* lavender purple */
+  --accent-100: #d9caff;   /* lighter lavender */
+  --accent-200: #f3e8ff;   /* very light lavender for highlights */
+  
+  --forest: #2e4a2e;       /* deep forest green */
+  --forest-light: #3e6b3e; /* slightly lighter green for hover/active states */
+
+  /* Neutral / dark mode base */
+  --background: #1a1a1a;   /* dark background */
+  --surface: #242424;      /* card/panel background */
+  --text: #e5e5e5;         /* main text colour */
+  --muted: #9ca3af;        /* secondary text / muted elements */
+
+  /* Accent for interactive elements */
+  --button-bg: var(--accent);
+  --button-hover: var(--accent-100);
+  --link: var(--forest-light);
+  --border: #3a3a3a;       /* subtle borders */
 }
