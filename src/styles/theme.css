@@ -1,0 +1,6 @@
+/* small utility tweaks — you can edit to taste */
+:root{
+  --accent: #7c3aed; /* purple */
+  --accent-100: #f3e8ff;
+  --muted: #6b7280;
+}
