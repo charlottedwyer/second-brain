@@ -17,7 +17,11 @@ export default function Wiki() {
   }, []);
 
   async function fetchPages() {
-    const { data } = await supabase.from('wiki').select('*').order('created_at', { ascending: false });
+    const { data } = await supabase
+      .from("wiki")
+      .select("*")
+      .order("created_at", { ascending: false });
+
     if (data) setPages(data as WikiPage[]);
   }
 
