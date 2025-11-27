@@ -2,34 +2,74 @@ import { useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 import Button from "./Button";
 
-type WikiEditorProps = {
-  onCreate: () => void;
+type WikiPage = {
+  id?: string;
+  title: string;
+  content: string;
 };
 
-export default function WikiEditor({ onCreate }: WikiEditorProps) {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+type WikiEditorProps = {
+  page?: WikiPage;
+  onSave: () => void;
+  onDelete?: () => void;
+};
+
+export default function WikiEditor({ page, onSave, onDelete }: WikiEditorProps) {
+  const [title, setTitle] = useState(page?.title || "");
+  const [content, setContent] = useState(page?.content || "");
   const [loading, setLoading] = useState(false);
 
-  async function handleCreate() {
+  const handleSave = async () => {
     if (!title || !content) return;
 
     setLoading(true);
-    const { error } = await supabase
-      .from("wiki")
-      .insert([{ title, content }]);
+
+    let error;
+    if (page?.id) {
+      const { error: updateError } = await supabase
+        .from("wiki")
+        .update({ title, content, updated_at: new Date() })
+        .eq("id", page.id);
+      error = updateError;
+    } else {
+      const { error: insertError } = await supabase
+        .from("wiki")
+        .insert([{ title, content }]);
+      error = insertError;
+    }
 
     setLoading(false);
 
     if (error) {
-      alert("Error creating page: " + error.message);
+      alert("Error saving page: " + error.message);
       return;
     }
 
-    setTitle("");
-    setContent("");
-    onCreate(); // refresh the list
-  }
+    onSave();
+  };
+
+  const handleDelete = async () => {
+    if (!page?.id) return;
+
+    const confirmed = confirm("Are you sure you want to delete this page?");
+    if (!confirmed) return;
+
+    setLoading(true);
+
+    const { error } = await supabase
+      .from("wiki")
+      .delete()
+      .eq("id", page.id);
+
+    setLoading(false);
+
+    if (error) {
+      alert("Error deleting page: " + error.message);
+      return;
+    }
+
+    if (onDelete) onDelete();
+  };
 
   return (
     <div className="my-4 p-4 border rounded-lg bg-surface">
@@ -45,9 +85,16 @@ export default function WikiEditor({ onCreate }: WikiEditorProps) {
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
-      <Button onClick={handleCreate} disabled={loading}>
-        {loading ? "Creating..." : "Create Page"}
-      </Button>
+      <div className="flex gap-2">
+        <Button onClick={handleSave} disabled={loading}>
+          {loading ? "Saving..." : "Save"}
+        </Button>
+        {page?.id && (
+          <Button onClick={handleDelete} disabled={loading} className="bg-red-600 text-white">
+            {loading ? "Deleting..." : "Delete"}
+          </Button>
+        )}
+      </div>
     </div>
   );
 }
