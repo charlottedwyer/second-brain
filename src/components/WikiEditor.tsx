@@ -72,7 +72,7 @@ export default function WikiEditor({ page, onSave, onDelete }: WikiEditorProps) 
   };
 
   return (
-    <div className="my-4 p-4 border rounded-lg bg-surface">
+    <div className="my-4 p-4 border rounded-lg ">
       <input
         className="w-full mb-2 p-2 border rounded"
         placeholder="Title"
@@ -90,7 +90,7 @@ export default function WikiEditor({ page, onSave, onDelete }: WikiEditorProps) 
           {loading ? "Saving..." : "Save"}
         </Button>
         {page?.id && (
-          <Button onClick={handleDelete} disabled={loading} className="bg-red-600 text-white">
+          <Button onClick={handleDelete} disabled={loading} className=" ">
             {loading ? "Deleting..." : "Delete"}
           </Button>
         )}

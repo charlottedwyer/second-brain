@@ -27,7 +27,7 @@ export default function Wiki() {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold">Wiki</h2>
+      <h2 className=" font-semibold">Wiki</h2>
       <p className="mt-2">Your linked notes and knowledge base.</p>
       <WikiEditor onCreate={fetchPages} />
       <WikiList pages={pages} />

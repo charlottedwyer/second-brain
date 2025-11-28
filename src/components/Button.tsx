@@ -13,7 +13,7 @@ export default function Button({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`inline-block px-3 py-2 rounded-lg bg-accent text-textPrimary text-sm font-medium hover:bg-accentLight focus:outline-none ${
+      className={`inline-block px-3 py-2 rounded-lg  Primary  font-medium hover:Light focus:outline-none ${
         disabled ? "opacity-50 cursor-not-allowed" : ""
       } ${className}`} // merged
     >

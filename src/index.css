@@ -2,5 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-/* theme overrides */
+/* Import theme variables */
 @import "./styles/theme.css";

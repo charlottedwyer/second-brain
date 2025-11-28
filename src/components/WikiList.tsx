@@ -38,16 +38,15 @@ export default function WikiList() {
       ) : (
         <>
           <button
-            className="mb-4 p-2 bg-purple-500 text-white rounded"
+            className="mb-4 p-2   rounded"
             onClick={() => setSelectedPage({ id: "", title: "", content: "" })}
           >
-            Create New Page
           </button>
           <ul>
             {pages.map((page) => (
               <li
                 key={page.id}
-                className="p-2 border-b cursor-pointer hover:bg-gray-100"
+                className="p-2 border-b cursor-pointer hover:"
                 onClick={() => setSelectedPage(page)}
               >
                 {page.title}

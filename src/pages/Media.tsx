@@ -32,8 +32,8 @@ export default function Media() {
 
   return (
     <div className="p-6">
-      <h2 className="text-3xl font-bold mb-2">Media Library</h2>
-      <p className="mb-6 text-gray-400">
+      <h2 className=" font-bold mb-2">Media Library</h2>
+      <p className="mb-6 ">
         Catalog your films, shows, books, music, and musicals. Track progress, rate, review, and note recommendations.
       </p>
 
@@ -51,7 +51,7 @@ export default function Media() {
       </div>
 
       {/* Add new media */}
-      <div className="mb-6 p-4 border rounded-lg bg-gray-50">
+      <div className="mb-6 p-4 border rounded-lg ">
         <h3 className="font-semibold mb-2">Add New Media</h3>
         <input
           type="text"
@@ -71,15 +71,15 @@ export default function Media() {
           <option value="Music">Music</option>
           <option value="Musical">Musical</option>
         </select>
-        <button onClick={addMedia} className="px-3 py-1 bg-purple-600 text-white rounded">Add</button>
+        <button onClick={addMedia} className="px-3 py-1   rounded">Add</button>
       </div>
 
       {/* Media list */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredList.map(item => (
           <div key={item.id} className="p-4 border rounded-lg shadow-sm hover:shadow-md transition">
-            <h3 className="font-semibold text-lg">{item.title}</h3>
-            <p className="text-sm text-gray-500">{item.type}</p>
+            <h3 className="font-semibold ">{item.title}</h3>
+            <p className=" ">{item.type}</p>
 
             {/* Editable fields */}
             <input
