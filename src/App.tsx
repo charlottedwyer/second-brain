@@ -1,15 +1,11 @@
-function App() {
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router";
+import "./index.css";
+
+export default function App() {
   return (
-    <div
-      className="min-h-screen flex items-center justify-center"
-      style={{
-        backgroundColor: "var(--background)",
-        color: "var(--text)"
-      }}
-    >
-      <p>Start prompting (or editing) to see magic happen :)</p>
+    <div className="min-h-screen bg-white text-black">
+      <RouterProvider router={router} />
     </div>
   );
 }
-
-export default App;

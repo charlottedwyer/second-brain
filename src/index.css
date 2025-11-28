@@ -2,5 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import theme variables */
-@import "./styles/theme.css";
+/* Basic black-on-white styling with book font */
+html, body, #root {
+  background-color: white;
+  color: black;
+  font-family: Georgia, serif;
+  margin: 0;
+  padding: 0;
+}
+
+header, aside {
+  background-color: #f3f3f3;
+  border-color: #d1d1d1;
+}
+
+button {
+  background-color: #e5e5e5;
+  color: black;
+  font-family: Georgia, serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: #d4d4d4;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.main-content {
+  padding: 1.5rem;
+}
