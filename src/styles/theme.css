@@ -1,21 +1,33 @@
+/* Default: Lavender + Forest Dark Theme */
 :root {
-  /* Primary colours */
-  --accent: #b497f7;       /* lavender purple */
-  --accent-100: #d9caff;   /* lighter lavender */
-  --accent-200: #f3e8ff;   /* very light lavender for highlights */
-  
-  --forest: #2e4a2e;       /* deep forest green */
-  --forest-light: #3e6b3e; /* slightly lighter green for hover/active states */
-
-  /* Neutral / dark mode base */
-  --background: #1a1a1a;   /* dark background */
-  --surface: #242424;      /* card/panel background */
-  --text: #e5e5e5;         /* main text colour */
-  --muted: #9ca3af;        /* secondary text / muted elements */
-
-  /* Accent for interactive elements */
+  --accent: #b497f7;
+  --accent-100: #d9caff;
+  --accent-200: #f3e8ff;
+  --forest: #2e4a2e;
+  --forest-light: #3e6b3e;
+  --background: #1a1a1a;
+  --surface: #242424;
+  --text: #e5e5e5;
+  --muted: #9ca3af;
   --button-bg: var(--accent);
   --button-hover: var(--accent-100);
   --link: var(--forest-light);
-  --border: #3a3a3a;       /* subtle borders */
+  --border: #3a3a3a;
+}
+
+/* Purple + Green Light Theme */
+:root[data-theme='purple'] {
+  --accent: #7c3aed;
+  --accent-100: #c4b5fd;
+  --accent-200: #f3e8ff;
+  --forest: #14532d;
+  --forest-light: #1f7a43;
+  --background: #f9f9f9;
+  --surface: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --button-bg: var(--accent);
+  --button-hover: var(--accent-100);
+  --link: var(--forest-light);
+  --border: #d1d5db;
 }
